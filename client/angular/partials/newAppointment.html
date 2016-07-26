@@ -1,0 +1,27 @@
+<div ng-controller="newAppointmentController"> 
+	<h1>New Appointment</h1>
+	<h2>Fill out all information for schedule button to appear</h2>
+	<form>
+		<label>Date</label>
+		<input ng-bind ="test" ng-model= "dates" type="date" name="bday" ng-change="checkDate()">
+		<p ng-if="okDate">Appointment needs to be today or after</p>
+		<label>Time</label>
+		<select ng-model="time">
+			<option value="8:00AM">8:00 AM</option>
+			<option value="9:00AM">9:00 AM</option>
+			<option value="10:00AM">10:00 AM</option>
+			<option value="11:00AM">11:00 AM</option>
+			<option value="12:00PM">12:00 PM</option>
+			<option value="1:00PM">1:00 PM</option>
+			<option value="2:00PM">2:00 PM</option>
+			<option value="3:00PM">3:00 PM</option>
+			<option value="4:00PM">4:00 PM</option>
+		</select>
+		<label>Complain</label>
+		<textarea ng-bind="complain" ng-model= "complain" ng-minlength="10" required></textarea>
+		<p ng-if="mins">Needs to be more that 10 letters</p>
+		<button ng-click="cancel()">Cancel</button>
+		<button  ng-click="addAppointment()">Add Appointment</button>
+		<p ng-if="toManyAppointment">Doctor already has three appointment that day</p>
+	</form>
+</div>
